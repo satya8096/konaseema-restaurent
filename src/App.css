@@ -1,0 +1,2046 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pacifico&family=Quicksand:wght@300..700&family=Quicksand:wght@300..700&family=Teko:wght@300..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
+}
+
+p,
+span,
+input,
+button,
+textarea,
+a,
+th,
+td,
+li,
+caption,
+label {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-style: normal;
+}
+p {
+  text-align: justify;
+}
+
+/* styles.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  overflow: hidden;
+}
+.navbar-brand {
+  color: white;
+}
+.navbar-brand:hover {
+  color: white;
+}
+.navbar-nav .nav-link {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  margin: 0.3rem 1rem;
+  transition: all 0.4s ease-in-out;
+}
+.navbar-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: -100%;
+  background-color: #007bff;
+  transition: left 0.4s ease-in-out;
+}
+.navbar-nav .nav-link:hover::before,
+.navbar-nav .nav-link:focus::before {
+  left: 0;
+}
+.navbar-nav .nav-link:hover {
+  transform: translateY(-6px);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #007bff;
+}
+.badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 3px;
+  width: 1.2rem;
+  border-radius: 100%;
+  background: red;
+  color: white;
+}
+
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+.navbar.scrolled {
+  background-color: rgba(51, 51, 51, 0.8);
+}
+.nav-profile-logo {
+  border: 2px solid black;
+  border-radius: 100%;
+  width: 2.8rem;
+  height: 2.8rem;
+  background-color: #ffc107;
+}
+#nav-profile-logo:hover {
+  color: white;
+}
+
+/* Home Styles */
+
+#main-section {
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(rgba(15, 23, 43, 0.737), rgba(15, 23, 43, 0.737)),
+    url("https://themewagon.github.io/restoran/img/bg-hero.jpg") no-repeat
+      center center/cover;
+  padding-top: 4rem;
+}
+
+#main-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+}
+.home-logo {
+  margin: auto;
+  width: 10rem;
+  display: block;
+}
+:root {
+  --text-color: hsla(210, 50%, 85%, 1);
+  --shadow-color: hsla(210, 40%, 52%, 0.4);
+  --btn-color: hsl(210, 80%, 42%);
+  --bg-color: #141218;
+}
+
+.home-explore-btn,
+.catering-book-a-slot {
+  position: relative;
+  padding: 0.3rem 0.5rem;
+  border: none;
+  background: none;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  background-color: var(--btn-color);
+  box-shadow: var(--shadow-color) 2px 2px 22px;
+  border-radius: 4px;
+  z-index: 0;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.home-explore-btn:hover,
+.catering-book-a-slot:hover {
+  color: #000;
+}
+
+.home-explore-btn:focus,
+.catering-book-a-slot:focus {
+  outline-color: transparent;
+  box-shadow: var(--btn-color) 2px 2px 22px;
+}
+
+.home-explore-btn::after,
+.catering-book-a-slot::after {
+  font-weight: 200;
+  top: -30px;
+  left: -20px;
+}
+
+/* bubbles */
+.home-explore-btn::before,
+.catering-book-a-slot::before {
+  content: "";
+  pointer-events: none;
+  opacity: 0.6;
+  background: radial-gradient(
+      circle at 20% 35%,
+      transparent 0,
+      transparent 2px,
+      var(--text-color) 3px,
+      var(--text-color) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 75% 44%,
+      transparent 0,
+      transparent 2px,
+      var(--text-color) 3px,
+      var(--text-color) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 46% 52%,
+      transparent 0,
+      transparent 4px,
+      var(--text-color) 5px,
+      var(--text-color) 6px,
+      transparent 6px
+    );
+
+  width: 100%;
+  height: 300%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: bubbles 5s linear infinite both;
+}
+
+@keyframes bubbles {
+  from {
+    transform: translate();
+  }
+  to {
+    transform: translate(0, -66.666%);
+  }
+}
+
+.home-main-container-1 {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  width: 40%;
+}
+.home-main-container-img {
+  z-index: 2;
+  width: 50%;
+}
+.home-main-container-img img {
+  width: 70%;
+  animation: homePicRotater 50s linear infinite;
+}
+@keyframes homePicRotater {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.feature {
+  color: white;
+}
+
+.fast-delivery {
+  background: linear-gradient(rgba(15, 23, 43, 0.771), rgba(15, 23, 43, 0.771)),
+    url("https://cutesolution.com/html/spice/assets/img/gallery/gallery-2.jpg")
+      no-repeat center center/cover;
+}
+
+.fresh-food {
+  background: linear-gradient(rgba(15, 23, 43, 0.771), rgba(15, 23, 43, 0.771)),
+    url("https://cutesolution.com/html/spice/assets/img/gallery/gallery-3.jpg")
+      no-repeat center center/cover;
+}
+
+.free-delivery {
+  background: linear-gradient(rgba(15, 23, 43, 0.771), rgba(15, 23, 43, 0.771)),
+    url("https://cutesolution.com/html/spice/assets/img/gallery/gallery-6.jpg")
+      no-repeat center center/cover;
+}
+
+.food-categories-heading-container {
+  height: 8rem;
+  padding: 1rem 2rem;
+  background-color: #1731993f;
+  border-radius: 0rem;
+  background: linear-gradient(rgba(15, 23, 43, 0.737), rgba(15, 23, 43, 0.737)),
+    url("https://restfood.onlywebcoding.com.ua/images/bg-pattern.jpg") no-repeat
+      center center/cover;
+  background-attachment: fixed;
+  color: white;
+}
+.food-categories-heading-container div {
+  width: 18rem;
+}
+.card {
+  width: 17rem;
+  height: 21rem;
+  margin: 1rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.195);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.btn-transparent {
+  background-color: transparent;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+
+#food-categories .card {
+  background: rgba(255, 255, 255, 0.9);
+}
+.testimonials-container {
+  width: 60%;
+  margin: 2rem auto;
+}
+/* Our story page styles */
+
+.our-story-container {
+  padding: 20px 0px;
+}
+.about-restaurant {
+  padding: 3rem;
+}
+.about-restaurant-img img,
+.how-we-started-content img {
+  width: 22rem;
+  text-align: center;
+}
+.about-restaurant-content,
+.how-we-started-content {
+  width: 50%;
+}
+
+.about-restaurant,
+.how-we-started,
+.about-owner {
+  margin-bottom: 60px;
+}
+
+.about-restaurant-section-title::after,
+.how-we-started-section-title::after,
+.about-owner-section-title::after {
+  content: "";
+  height: 3px;
+  background: #ff6f61;
+  display: block;
+  margin: 10px auto 0;
+}
+.about-owner {
+  padding: 3rem;
+  width: 70%;
+  margin: auto;
+}
+
+.owner-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-content {
+    font-size: 1rem;
+  }
+
+  .responsive-img,
+  .owner-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.story-section {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.456) 0%,
+      rgba(0, 0, 0, 0.353) 59%,
+      rgba(0, 0, 0, 0.669) 100%
+    ),
+    url("https://img.freepik.com/free-photo/top-view-winter-vegetables-soup-bowl-with-copy-space_23-2148706332.jpg?t=st=1721957917~exp=1721961517~hmac=cd2f3db3db9493a52fdeb72ff2295b7cf0c0cac6aa791f590c0d2e1d4d8aa269&w=1060")
+      no-repeat center center/cover;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+.our-story-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeInDown 2s;
+}
+.our-story-slogan {
+  font-size: 1.5rem;
+  animation: fadeInUp 2s;
+}
+
+.book-table-section {
+  padding: 3rem 0rem;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.456) 0%,
+      rgba(0, 0, 0, 0.353) 59%,
+      rgba(0, 0, 0, 0.669) 100%
+    ),
+    url("https://img.freepik.com/free-photo/tabletop-looking-out-empty-restaurant_23-2147701293.jpg?t=st=1721960972~exp=1721964572~hmac=291a66957e267d0b2bad1ccd3e971a4822290124f7ece12cf12f3d103f0a4d4c&w=826")
+      no-repeat center center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.book-table-section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.book-table-section-description {
+  font-size: 1.25rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.book-table-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.booking-form {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-table-form-group {
+  margin-bottom: 20px;
+}
+
+.book-table-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.book-table-form-group input {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.book-table-form-group input:focus {
+  border: 2px solid #173199;
+}
+
+.book-table-submit-btn {
+  background-color: #ff6f61;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.book-table-submit-btn:hover {
+  background-color: #ff4a42;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .booking-form {
+    max-width: 100%;
+  }
+}
+
+/* Our Chefs Section */
+
+.our-chefs {
+  padding: 3rem;
+}
+.chefs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1.6rem;
+}
+
+.chef-card {
+  background: #fff;
+  color: #333;
+  width: 20rem;
+  margin: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.chef-card img {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.chef-card h2 {
+  margin-bottom: 10px;
+  color: #ff6f61;
+}
+
+.chef-card p {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .chef-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .chef-card {
+    width: 100%;
+  }
+}
+
+/* Menu Page Styles */
+.main-menu-container {
+  color: white;
+  padding-top: 7rem;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 59%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("https://restfood.onlywebcoding.com.ua/images/bg-header.png") no-repeat
+      center center/cover;
+  background-attachment: fixed;
+}
+.items-container {
+  min-height: 9rem;
+}
+.category-filter-card img {
+  border-radius: 100%;
+  width: 6rem;
+}
+.category-filter-card h6 {
+  margin-top: 0.6rem;
+}
+.categories-types-sub-container .card {
+  transition: transform 0.3s;
+}
+
+.categories-types-sub-container .card:hover,
+.menu-items-card img {
+  transform: scale(1.05);
+}
+.menu-items-card {
+  height: 24rem;
+  color: black;
+}
+.menu-items-card .rating i {
+  font-size: 1rem;
+}
+
+.menu-items-card .btn-outline-secondary {
+  border-radius: 100%;
+  padding: 0.5rem;
+}
+
+.menu-items-card .btn-outline-secondary .fas {
+  font-size: 0.75rem;
+}
+
+/* Catering Page styles */
+.catering-main-sub-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.672) 100%,
+      rgba(0, 0, 1, 0.607) 100%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("https://img.freepik.com/free-photo/fresh-gourmet-meal-beef-taco-salad-plate-generated-by-ai_188544-13382.jpg?t=st=1721914154~exp=1721917754~hmac=b9d6b3820c005ca2e407d7cef79e47c4ece923eb49f52a416ad605a92f49531b&w=1060")
+      no-repeat center center/cover;
+  background-attachment: fixed;
+  color: white;
+}
+.catering-services-list {
+  height: 100vh;
+  background: url("https://preview.vwthemesdemo.com/vw-catering/wp-content/themes/vw-catering-pro/assets/images/services/servicesbg.jpg")
+    no-repeat center center/cover;
+  background-attachment: fixed;
+}
+.catering-services-sub {
+  width: 75%;
+  height: 60%;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+.catering-services-left,
+.catering-services-right {
+  width: 22rem;
+}
+.catering-about-us-conatainer {
+  height: 100vh;
+}
+.catering-about-us-img,
+.catering-about-us-content {
+  width: 45%;
+}
+.event-icon-container {
+  font-size: 3rem;
+  width: 14rem;
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: seagreen;
+  background: url("https://preview.vwthemesdemo.com/vw-catering/wp-content/themes/vw-catering-pro/assets/images/records/counterbg.png")
+    no-repeat center center/cover;
+}
+.catering-types-main-container {
+  background: url("https://preview.vwthemesdemo.com/vw-catering/wp-content/themes/vw-catering-pro/assets/images/category/ourcategorybg.jpg")
+    no-repeat center center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stats-section {
+  background-color: #ffffff;
+  padding: 40px 0px;
+  text-align: center;
+}
+
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-item {
+  width: 20%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-icon {
+  font-size: 3rem;
+  color: #ff6f61;
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-title {
+  font-size: 1.25rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+@keyframes counterAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+[data-aos="fade-up"] {
+  animation: counterAnimation 1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stat-item {
+    flex: 1 1 calc(50% - 40px);
+  }
+}
+
+@media (max-width: 576px) {
+  .stat-item {
+    flex: 1 1 100%;
+  }
+}
+
+/* Menu Item Details */
+.menu-item-details-container {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.766) 100%,
+      rgba(0, 0, 0, 0.764) 100%,
+      rgba(0, 0, 0, 0.763) 100%
+    ),
+    url("https://img.freepik.com/free-photo/top-view-delicious-pie-table_23-2150857842.jpg?t=st=1722231639~exp=1722235239~hmac=2b2c5a0b5e2490f30a8332781b27147bf37997b97443d8bb8f32753f203bfecc&w=1060")
+      no-repeat center center/cover;
+  background-attachment: fixed;
+  color: white;
+  padding-top: 5rem;
+  min-height: 100vh;
+}
+
+.item-img,
+.item-details {
+  width: 46%;
+  padding: 1rem;
+}
+.item-img img {
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px white;
+}
+.item-details-btns button {
+  width: 8rem;
+  margin: 0.3rem 0.8rem;
+}
+.comments-container,
+.post-review {
+  width: 45%;
+}
+
+/* Contact Styles */
+.contact-section-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.617) 100%,
+      rgba(0, 0, 0, 0.671) 100%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("https://img.freepik.com/free-photo/close-up-appetizing-ramadan-meal_23-2151182440.jpg?t=st=1722096480~exp=1722100080~hmac=d5773783a2f8e7f87b977c7566030326bfb779c377ddf71bac47c9772da07d3f&w=1380")
+      no-repeat center center/cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+.opening-times-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.opening-time-section-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.opening-time-section-description {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.timings-table {
+  width: 40rem;
+  min-height: 20rem;
+  overflow-x: scroll;
+  margin: auto;
+  text-align: start;
+}
+.timings-table tbody tr td,
+.timings-table tbody tr th {
+  padding: 0.5rem 2rem;
+  border-bottom: 2px solid black;
+}
+.day-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.time-info {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .time-item {
+    max-width: 100%;
+  }
+}
+
+.contact-details-section {
+  padding: 4rem 2rem;
+}
+.contact-form,
+.contact-content {
+  width: 40%;
+}
+.contact-content-sub {
+  width: 50%;
+}
+.contact-form input[type="text"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.contact-form input[type="submit"] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.contact-form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.contact-maps-container iframe {
+  width: 100%;
+}
+.contact-content {
+  gap: 2rem;
+}
+.contact-content i {
+  font-size: 2.2rem;
+  margin: 0rem 2rem;
+}
+
+/* Order Styles */
+.order-main-container {
+  padding-top: 8rem;
+  min-height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.747) 100%,
+      rgba(0, 0, 0, 0.773) 100%,
+      rgba(0, 0, 0, 0.758) 100%
+    ),
+    url("https://themewagon.github.io/tasteit/images/bg_1.jpg") no-repeat center
+      center/cover;
+  background-attachment: fixed;
+  color: white;
+}
+.recent-order-container,
+.previous-order-container {
+  width: 90%;
+  margin: 2rem 0rem;
+}
+#recent-order-table,
+#previous-order-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#recent-order-table th,
+#recent-order-table td,
+#previous-order-table th,
+#previous-order-table td {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding: 16px;
+}
+#recent-order-table th,
+#previous-order-table th {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.order-search-bar {
+  display: flex;
+  align-items: center;
+  width: 20rem;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.order-search-bar i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #7a00ff;
+  cursor: pointer;
+}
+
+.order-search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+/* Cart Styles  */
+
+.cart-container {
+  min-height: 100vh;
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.376) 100%,
+      rgba(0, 0, 0, 0) 100%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("https://themewagon.github.io/pizza/images/bg_3.jpg") no-repeat center
+      center/cover;
+  background-attachment: fixed;
+}
+.cart-main-sub-container {
+  max-width: 90%;
+  margin: 40px auto 0px auto;
+  padding: 20px;
+  background: #00000038;
+  border-radius: 10px;
+  height: 24rem;
+  color: white;
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.743);
+}
+.cart-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.cart-items {
+  padding: 2rem;
+  overflow-y: scroll;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 48%;
+  height: 100%;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.cart-item img {
+  width: 3rem;
+}
+.item-name {
+  flex: 1;
+}
+.item-price,
+.item-total {
+  width: 80px;
+  text-align: right;
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+.quantity-controls span {
+  width: 1.5rem;
+  text-align: center;
+}
+
+.quantity-controls button {
+  background-color: #ff6f61;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 100%;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: background-color 0.3s;
+}
+
+.quantity-controls button:hover {
+  background-color: #ff4a42;
+}
+
+.cart-summary {
+  text-align: right;
+  width: 45%;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cart-checkout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16rem;
+  height: 3rem;
+  font-family: calibri;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.5s linear;
+}
+
+.cart-checkout-btn span {
+  font-size: 20px;
+  padding: 0 5px;
+}
+
+.cart-checkout-btn {
+  border: 2px solid #ffc107;
+  color: black;
+  color: #ffc107;
+}
+.cart-checkout-btn i {
+  transition: all 0.5s linear;
+}
+
+.cart-checkout-btn:hover {
+  background-color: #ffc107;
+  color: white;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.654);
+}
+.cart-checkout-btn:hover i {
+  transform: translateX(10px);
+  color: white;
+}
+
+/* Login Styles */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  padding-top: 5rem;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.632) 100%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("https://img.freepik.com/free-photo/grilled-beef-pork-with-fresh-guacamole-generated-by-ai_188544-38177.jpg?t=st=1722096831~exp=1722100431~hmac=3a52c28f57358f29979e0713042ff0d387929243469b7b115d89cd4cb74983f5&w=1060")
+      no-repeat center center/cover;
+  background-attachment: fixed;
+  /* background: linear-gradient(to right, #ff6f61, #ff4a42); */
+}
+
+.login-container-form-container {
+  background-color: #00000059;
+  padding: 40px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.527);
+  width: 40%;
+  text-align: center;
+}
+
+.login-form .form-title,
+.signup-form .form-title {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.login-form .form-group,
+.signup-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-form .form-group label,
+.signup-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-form .form-group input,
+.signup-form .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form .password-container,
+.signup-form .password-container {
+  position: relative;
+}
+
+.login-form .toggle-password,
+.signup-form .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.submit-btn,
+.google-btn {
+  background-color: #ff6f61;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.google-btn {
+  background-color: #4285f4;
+}
+
+.submit-btn:hover {
+  background-color: #ff4a42;
+}
+
+.google-btn:hover {
+  background-color: #357ae8;
+}
+
+.form-switch {
+  margin-top: 20px;
+  color: white;
+}
+
+.form-switch span {
+  color: #ff6f61;
+  cursor: pointer;
+}
+
+.form-error {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* Profile Styles */
+.profile-main-container {
+  padding-top: 5rem;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.632) 100%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("https://img.freepik.com/free-photo/top-view-eid-al-fitr-celebration-with-delicious-food_23-2151205083.jpg?t=st=1722139977~exp=1722143577~hmac=c2195197d3b8f2fd12fa36daadd20c84816f29881bd8ef963d96b699c86714a8&w=1060")
+      no-repeat center center/cover;
+  background-attachment: fixed;
+}
+.profile-side-nav {
+  padding: 1rem;
+  width: 15rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  border-color: white;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px black;
+}
+.profile-side-nav ul {
+  flex-direction: column;
+}
+.profile-side-nav ul li {
+  margin: 1.1rem 0rem;
+}
+.profile-side-nav ul li a {
+  color: black;
+}
+#profile-information-container {
+  margin-left: 17rem;
+  right: 0;
+  padding: 1rem;
+  border-color: white;
+  border-radius: 10px;
+  min-height: 85vh;
+  background-color: white;
+  margin-right: 1rem;
+  box-shadow: 0px 0px 2px black;
+  width: calc(100% - 18rem);
+}
+
+.profile-details-container form input[type="text"],
+.profile-details-container form textarea,
+.profile-details-container form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+.profile-address-main-container div ul li {
+  width: 15rem;
+}
+
+/* Style the label to display next to the inputs */
+.profile-details-container form label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+.profile-details-container form input[type="submit"] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  width: 6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the container */
+.profile-details-container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.profile-save-butttons {
+  position: absolute;
+  bottom: 4rem;
+  right: 3rem;
+  width: 20rem;
+}
+
+.customer-main-container form input[type="text"],
+.customer-main-container form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style the submit button */
+.customer-main-container form input[type="submit"] {
+  width: 100%;
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.customer-main-container form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Footer */
+.bg-light-pink {
+  background: url(" https://themewagon.github.io/flatter/img/banner/footer-bg.png")
+    no-repeat center center/cover;
+}
+.social-icons a i {
+  font-size: 1.5rem;
+  transition: color 0.3s;
+  color: white;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin: 0.4rem;
+  transition: all 0.5s linear;
+}
+
+.social-icons a:hover i {
+  color: white;
+  background-color: #007bff;
+  box-shadow: 0px 0px 10px white;
+  scale: 1.05;
+}
+
+footer ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+footer ul li a:hover {
+  color: #007bff;
+}
+.footer-links {
+  transition: all 0.3s linear;
+}
+.footer-links:hover {
+  transform: translateX(4px);
+}
+
+/* Error Page */
+.error-page-container {
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.632) 100%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("https://img.freepik.com/free-vector/realistic-vhs-effect-background_23-2150083606.jpg?t=st=1722272715~exp=1722276315~hmac=c438ab514cea0d63ef4b658081b432c79af8ef88fc77ee13960afb15502df2e6&w=996")
+      no-repeat center center/cover;
+  background-attachment: fixed;
+  color: white;
+}
+.error-page-container div {
+  width: 70%;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+/* Top Button */
+.top-button,
+.whatsapp-button {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Top Button */
+.top-button {
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.top-button.show {
+  display: block;
+  animation: fadeInUp 0.5s;
+}
+
+.top-button:hover {
+  background-color: #555;
+  scale: 1.1;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+  right: 80px;
+  background-color: #25d366;
+  color: #fff;
+}
+
+.whatsapp-button.show {
+  display: block;
+  animation: fadeInUp 0.5s;
+}
+
+.whatsapp-button:hover {
+  background-color: #1da955;
+  scale: 1.1;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .whatsapp-button {
+    right: 20px;
+    bottom: 80px;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 576px) {
+  .navbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #141218;
+  }
+  .badge {
+    position: absolute;
+    top: 10px;
+    right: 4px;
+  }
+  .home-main-container-1,
+  .home-main-container-img {
+    overflow: hidden;
+    width: 90%;
+  }
+  .home-main-container-img img {
+    width: 70%;
+  }
+  .food-categories-heading-container {
+    height: 12rem;
+    gap: 1rem;
+  }
+  .testimonials-container {
+    width: 100%;
+    margin: 2rem auto;
+  }
+    .testimonials-container img{
+      height: 25rem;
+    }
+  .carousel-caption h5,
+  .carousel-caption p,
+  .carousel-caption i {
+    font-size: 1rem;
+  }
+  /* Story Styles */
+  .story-section-overlay {
+    padding: 20px;
+    width: 90%;
+  }
+  .about-restaurant {
+    padding: 1.5rem;
+    text-align: justify;
+  }
+  .about-restaurant-img img {
+    width: 100%;
+  }
+  .about-restaurant-content {
+    width: 98%;
+  }
+  .how-we-started {
+    padding: 1rem;
+  }
+  .how-we-started-content {
+    width: 100%;
+  }
+  .how-we-started-img img {
+    width: 100%;
+  }
+  .booking-form {
+    width: 94%;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .slogan {
+    font-size: 1rem;
+  }
+  .our-chefs {
+    padding: 1rem;
+  }
+  .about-owner {
+    padding: 1rem;
+    width: 95%;
+    margin: auto;
+  }
+  /* Menu Item Details */
+  .menu-items-card {
+    width: 20rem;
+    margin: auto;
+    height: 24rem;
+    color: black;
+  }
+  .item-img,
+  .item-details {
+    width: 90%;
+    padding: 1rem;
+  }
+  .comments-container,
+  .post-review {
+    width: 90%;
+  }
+  .category-filter-card {
+    margin: 0.5rem;
+  }
+  /* Catering Styles */
+  .catering-services-sub {
+    gap: 1rem;
+    padding: 1rem;
+    width: 95%;
+    height: 90%;
+  }
+  .catering-services-left,
+  .catering-services-right {
+    width: 95%;
+  }
+  .catering-about-us-conatainer {
+    gap: 1rem;
+  }
+  .catering-about-us-img,
+  .catering-about-us-content {
+    width: 95%;
+  }
+  .catering-about-us-content {
+    padding: 1rem;
+  }
+  .catering-about-us-img img {
+    margin-top: 2rem;
+    width: 100%;
+  }
+  .catering-types-main-container {
+    padding: 1rem;
+  }
+  .stat-item {
+    width: 100%;
+  }
+  /* Contact Styles */
+  .contact-section-main-container {
+    padding: 1rem;
+  }
+  .contact-form,
+  .contact-content {
+    width: 100%;
+  }
+  .contact-content-sub {
+    width: 65%;
+  }
+  .timings-table {
+    width: 100%;
+    height: 20rem;
+    overflow-x: scroll;
+    margin: auto;
+    text-align: start;
+  }
+  .timings-table tbody tr td,
+  .timings-table tbody tr th,
+  .timings-table tbody tr th h2,
+  .timings-table tbody tr th p {
+    padding: 0.5rem 0rem;
+    font-size: 0.8rem;
+    border-bottom: 2px solid black;
+  }
+  /* Orders styles */
+  .recent-order-container,
+  .previous-order-container {
+    width: 100%;
+    padding: 1rem;
+  }
+  #recent-order-table th,
+  #recent-order-table td,
+  #previous-order-table th,
+  #previous-order-table td {
+    width: 40rem;
+  }
+
+  /* Cart Styles */
+  .cart-items {
+    padding: 1rem;
+    width: 20rem;
+    height: 20rem;
+  }
+  .cart-items span {
+    margin: 0.5rem 0.8rem;
+  }
+
+  .cart-main-sub-container {
+    height: 50rem;
+  }
+  .quantity-controls span {
+    width: 1rem;
+  }
+  /* Login Styles */
+  .login-container {
+    padding: 1rem;
+  }
+  .login-container-form-container {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  /* Profile Styles */
+  .profile-main-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0rem;
+    justify-content: start;
+    background-color: #1da955;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .profile-side-nav {
+    padding: 1rem;
+    min-width: 91%;
+    margin-bottom: 1rem;
+    position: relative;
+    border-color: white;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px black;
+  }
+  .profile-side-nav ul {
+    overflow-x: scroll;
+    flex-direction: row;
+  }
+  .profile-side-nav ul li {
+    width: 10rem;
+    margin: 1rem;
+  }
+  .profile-side-nav ul li a {
+    margin: 1.1rem 0rem;
+    display: block;
+    width: 15rem;
+    float: left;
+    flex-direction: row;
+  }
+  #profile-information-container {
+    margin: 0.2rem;
+    width: 98%;
+    min-height: 100vh;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px black;
+  }
+  .profile-save-butttons {
+    position: relative;
+    margin-top: 6rem;
+    width: 100%;
+    right: 0;
+    height: 10rem;
+    flex-direction: column;
+  }
+
+  .col-25 {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .col-75 {
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .wishlist-main-container div .card {
+    width: 18rem;
+  }
+  .whatsapp-button {
+    right: 20px;
+    bottom: 80px;
+  }
+  .error-page-container div {
+    width: 90%;
+    margin: auto;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 577px) {
+  .navbar {
+    background-color: #141218;
+  }
+  .home-main-container-img img {
+    width: 60%;
+  }
+  .testimonials-container {
+    width: 85%;
+    margin: 2rem auto;
+  }
+   .testimonials-container img{
+      height: 24rem;
+    }
+  .about-restaurant {
+    padding: 1.5rem;
+    text-align: justify;
+  }
+  .about-restaurant-img img {
+    width: 100%;
+  }
+  .about-restaurant-content {
+    width: 98%;
+  }
+  .how-we-started {
+    padding: 1rem;
+  }
+  .how-we-started-content {
+    width: 95%;
+  }
+  .how-we-started-img img {
+    width: 100%;
+  }
+  .booking-form {
+    width: 94%;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .slogan {
+    font-size: 1rem;
+  }
+  .our-chefs {
+    padding: 1rem;
+  }
+  .about-owner {
+    padding: 1rem;
+    width: 95%;
+    margin: auto;
+  }
+  .about-owner img {
+    width: 30%;
+  }
+  /* Menu Item Details */
+  .item-img,
+  .item-details {
+    width: 90%;
+    padding: 1rem;
+  }
+  .comments-container,
+  .post-review {
+    width: 90%;
+  }
+  .category-filter-card {
+    margin: 1rem;
+  }
+  /* Catering Styles */
+  .catering-services-sub {
+    gap: 1rem;
+    padding: 1rem;
+    width: 95%;
+    height: 90%;
+  }
+  .catering-services-left,
+  .catering-services-right {
+    width: 95%;
+  }
+  .catering-about-us-conatainer {
+    gap: 1rem;
+  }
+  .catering-about-us-img,
+  .catering-about-us-content {
+    width: 95%;
+  }
+  .catering-about-us-content {
+    padding: 1rem;
+  }
+  .catering-about-us-img img {
+    margin-top: 2rem;
+    width: 60%;
+  }
+  .catering-types-main-container {
+    padding: 1rem;
+  }
+  .stat-item {
+    width: 100%;
+  }
+  /* Contact Styles */
+  .contact-section-main-container {
+    padding: 1rem;
+  }
+  .contact-form,
+  .contact-content {
+    width: 100%;
+  }
+  .contact-content-sub {
+    width: 65%;
+  }
+  .timings-table {
+    width: 100%;
+    height: 20rem;
+    overflow-x: scroll;
+    margin: auto;
+    text-align: start;
+  }
+  .timings-table tbody tr td,
+  .timings-table tbody tr th,
+  .timings-table tbody tr th h2,
+  .timings-table tbody tr th p {
+    padding: 0.5rem 0rem;
+    font-size: 0.8rem;
+    border-bottom: 2px solid black;
+  }
+  /* Login Styles */
+  .login-container {
+    padding: 1rem;
+  }
+  .login-container-form-container {
+    width: 60%;
+    padding: 1.5rem;
+  }
+  .profile-save-butttons {
+    position: relative;
+    margin-top: 6rem;
+    width: 100%;
+    right: 0;
+    height: 10rem;
+    flex-direction: column;
+  }
+  .profile-address-main-container div ul li {
+    width: 10rem;
+  }
+  .whatsapp-button {
+    right: 20px;
+    bottom: 80px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+  .navbar {
+    background-color: #141218;
+  }
+  .category-filter-card {
+    margin: 0.5rem;
+  }
+  .testimonials-container {
+    width: 85%;
+    margin: 2rem auto;
+  }
+   .testimonials-container img{
+      height: 24rem;
+    }
+  /* Catering Styles */
+  .catering-services-sub {
+    gap: 1rem;
+    padding: 1rem;
+    width: 95%;
+    height: 90%;
+  }
+  .catering-services-left,
+  .catering-services-right {
+    width: 95%;
+  }
+  .catering-about-us-conatainer {
+    gap: 1rem;
+  }
+  .catering-about-us-img,
+  .catering-about-us-content {
+    width: 95%;
+  }
+  .catering-about-us-content {
+    padding: 1rem;
+  }
+  .catering-about-us-img img {
+    margin-top: 2rem;
+    width: 60%;
+  }
+  .catering-types-main-container {
+    padding: 1rem;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .slogan {
+    font-size: 1.2rem;
+  }
+  .contact-form,
+  .contact-content {
+    width: 100%;
+  }
+  /* Login Styles */
+  .login-container {
+    padding: 1rem;
+  }
+  .login-container-form-container {
+    width: 60%;
+    padding: 1.5rem;
+  }
+  .whatsapp-button {
+    right: 40px;
+    bottom: 20px;
+  }
+  .error-page-container div {
+    width: 70%;
+    margin: auto;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+  .whatsapp-button {
+    right: 60px;
+    bottom: 20px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .whatsapp-button {
+    right: 80px;
+    bottom: 20px;
+  }
+}
+
+/* All buttons Styles */
+
+.glow-on-hover {
+  padding: 0.4rem 0.6rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #007bff;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
