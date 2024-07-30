@@ -95,14 +95,12 @@ const Order = () => {
                 <th>Price</th>
                 <th>Delivery Status</th>
               </tr>
-              {orders
-                .filter((item) => {
+              {orders.filter((item) => {
                   return (
                     item.deliveryStatus === "Preparing" ||
                     item.deliveryStatus === "Out for Delivery"
                   );
-                })
-                .map((item, index) => {
+                }).map((item, index) => {
                   return (
                     <tr key={index}>
                       <td>{index + 1}</td>
