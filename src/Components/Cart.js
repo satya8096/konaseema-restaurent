@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState,useCallback } from "react";
 import { Link } from "react-router-dom";
 const Cart = () => {
   const initialItems = [
@@ -49,9 +49,7 @@ const Cart = () => {
     };
   }, [items]);
 
-  const { subtotal, tax, deliveryCharge, total } = useMemo(calculateTotal, [
-    items,
-  ]);
+  const { subtotal, tax, deliveryCharge, total } = calculateTotal()
 
   return (
     <div className="cart-container">

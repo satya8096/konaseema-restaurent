@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState} from "react";
 
 const Order = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -66,13 +66,11 @@ const Order = () => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredOrders = useMemo(
+  const filteredOrders =
     () =>
       orders.filter((item) =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      ),
-    [searchTerm]
-  );
+      )
   return (
     <>
       <div className="order-main-container d-flex align-items-center  flex-column gap-2">
