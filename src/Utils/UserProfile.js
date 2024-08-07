@@ -1,30 +1,41 @@
 import React, { useState } from "react";
-
 const UserProfile = () => {
   const [isDisabled, setIsDisabled] = useState(true);
-  const user = {
+
+  const [user, setUser] = useState({
     fname: "Satyanarayana",
     lname: "Katta",
     gender: "Male",
     email: "kattasatyanarayana2003@gmail.com",
     phone: "+91 8096334401",
-  };
+  });
 
-  const enableFields = (e) => {
+  const editHandler = (e) => {
     e.preventDefault();
     setIsDisabled(false);
   };
 
-  const disableFields = (e) => {
+  const cancleHandler = (e) => {
     e.preventDefault();
+    setUser({
+      fname: "Satyanarayana",
+      lname: "Katta",
+      gender: "Male",
+      email: "kattasatyanarayana2003@gmail.com",
+      phone: "+91 8096334401",
+    });
     setIsDisabled(true);
+  };
+
+  const onChangeHandler = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   return (
     <div>
       <h3>Profile Information</h3>
       <div className="profile-details-container">
-        <form>
+        <form data-aos="zoom-in">
           <div className="row">
             <div className="col-25">
               <label htmlFor="fname">First Name</label>
@@ -34,8 +45,9 @@ const UserProfile = () => {
                 type="text"
                 id="fname"
                 className="profile-first-name"
-                name="firstname"
-                defaultValue={user.fname}
+                name="fname"
+                value={user.fname}
+                onChange={onChangeHandler}
                 placeholder="Your name.."
                 disabled={isDisabled}
               />
@@ -49,10 +61,11 @@ const UserProfile = () => {
               <input
                 type="text"
                 id="lname"
-                name="lastname"
+                name="lname"
                 className="profile-last-name"
                 placeholder="Your last name.."
-                defaultValue={user.lname}
+                value={user.lname}
+                onChange={onChangeHandler}
                 disabled={isDisabled}
               />
             </div>
@@ -67,7 +80,8 @@ const UserProfile = () => {
                 name="gender"
                 disabled={isDisabled}
                 className="profile-gender"
-                defaultValue={user.gender}
+                value={user.gender}
+                onChange={onChangeHandler}
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -86,7 +100,8 @@ const UserProfile = () => {
                 name="email"
                 className="profile-email"
                 placeholder="Your email.."
-                defaultValue={user.email}
+                value={user.email}
+                onChange={onChangeHandler}
                 disabled={isDisabled}
               />
             </div>
@@ -102,7 +117,8 @@ const UserProfile = () => {
                 name="phone"
                 className="profile-phone-num"
                 placeholder="Your phone number.."
-                defaultValue={user.phone}
+                value={user.phone}
+                onChange={onChangeHandler}
                 disabled={isDisabled}
               />
             </div>
@@ -113,7 +129,7 @@ const UserProfile = () => {
               value="Cancle"
               className="btn btn-danger"
               id="submit-cancle"
-              onClick={(e) => disableFields(e)}
+              onClick={(e) => cancleHandler(e)}
               style={{ backgroundColor: "red" }}
             />
             <input
@@ -121,7 +137,7 @@ const UserProfile = () => {
               value="Edit"
               style={{ backgroundColor: "blue" }}
               className="submit-edit"
-              onClick={(e) => enableFields(e)}
+              onClick={(e) => editHandler(e)}
             />
             <input type="submit" value="Submit" className="profile-sub" />
           </div>

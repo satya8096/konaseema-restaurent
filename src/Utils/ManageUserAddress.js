@@ -1,7 +1,36 @@
 import React, { useState } from "react";
+import { Error } from "../Utils/ToastifyContainerHandler";
+import { ToastContainer } from "react-toastify";
 
 const ManageUserAddress = () => {
   const [isFormEnabled, setFormEnabled] = useState(false);
+  const [address, setAddress] = useState({
+    houseNo: "",
+    street: "",
+    city: "",
+    district: "",
+    state: "",
+    pin: "",
+  });
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (
+      !address.houseNo ||
+      !address.street ||
+      !address.city ||
+      !address.state ||
+      !address.district ||
+      !address.pin
+    ) {
+      return Error("Please Provide All Details !");
+    }
+  };
+
+  const onChangeHandler = (e) => {
+    setAddress({ ...address, [e.target.name]: e.target.value });
+  };
+
   const addresses = [
     {
       address:
@@ -14,7 +43,7 @@ const ManageUserAddress = () => {
   ];
 
   return (
-    <div className="profile-address-main-container">
+    <div className="profile-address-main-container" data-aos="zoom-in">
       <h4 className="mb-3">Your Address for Shipping</h4>
       <div>
         {addresses.length === 0 && (
@@ -24,9 +53,7 @@ const ManageUserAddress = () => {
         )}
         <ul>
           {addresses.map((each, index) => (
-            <li key={index}>
-              {each.address}
-            </li>
+            <li key={index}>{each.address}</li>
           ))}
         </ul>
         <button
@@ -49,6 +76,8 @@ const ManageUserAddress = () => {
                     id="house-no"
                     className="profile-house-no"
                     name="houseNo"
+                    value={address.houseNo}
+                    onChange={onChangeHandler}
                     placeholder="House Number, Eg: 1-47"
                   />
                 </div>
@@ -62,6 +91,8 @@ const ManageUserAddress = () => {
                     type="text"
                     id="street"
                     name="street"
+                    value={address.street}
+                    onChange={onChangeHandler}
                     className="profile-street"
                     placeholder="Street Name, Eg: Cherry Street"
                   />
@@ -76,6 +107,8 @@ const ManageUserAddress = () => {
                     type="text"
                     id="city"
                     name="city"
+                    value={address.city}
+                    onChange={onChangeHandler}
                     className="profile-city"
                     placeholder="City Name, Eg: London"
                   />
@@ -90,6 +123,8 @@ const ManageUserAddress = () => {
                     type="text"
                     id="district"
                     name="district"
+                    value={address.district}
+                    onChange={onChangeHandler}
                     className="profile-district"
                     placeholder="District Name, Eg: Konaseema"
                   />
@@ -104,6 +139,8 @@ const ManageUserAddress = () => {
                     type="text"
                     id="state"
                     name="state"
+                    value={address.state}
+                    onChange={onChangeHandler}
                     className="profile-state"
                     placeholder="State Name, Eg: Andhra Pradesh"
                   />
@@ -117,7 +154,9 @@ const ManageUserAddress = () => {
                   <input
                     type="text"
                     id="pin-code"
-                    name="pinCode"
+                    name="pin"
+                    value={address.pin}
+                    onChange={onChangeHandler}
                     className="profile-pin-code"
                     placeholder="Pin Code, Eg: 533212"
                   />
@@ -132,7 +171,11 @@ const ManageUserAddress = () => {
                 >
                   Cancel
                 </button>
-                <button type="submit" className="btn btn-success">
+                <button
+                  type="submit"
+                  className="btn btn-success"
+                  onClick={submitHandler}
+                >
                   Save
                 </button>
               </div>
@@ -140,6 +183,7 @@ const ManageUserAddress = () => {
           </div>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };

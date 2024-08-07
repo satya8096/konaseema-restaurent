@@ -7,14 +7,14 @@ const Catering = () => {
   const [counterOn, setCounterOn] = useState(false);
 
   const ServiceItem = ({ title, description }) => (
-    <div className="catering-service">
+    <div className="catering-service" data-aos="zoom-in">
       <h5>{title}</h5>
       <p>{description}</p>
     </div>
   );
 
   const CateringType = ({ icon, title }) => (
-    <div className="catering-type">
+    <div className="catering-type" data-aos="zoom-in">
       <div className="event-icon-container">
         <i className={icon + " event-icon"}></i>
       </div>
@@ -23,14 +23,20 @@ const Catering = () => {
   );
 
   const StatItem = ({ icon, target, title }) => (
-    <div className="stat-item" data-target={target}>
+    <div className="stat-item" data-target={target} data-aos="zoom-in">
       <i className={icon + " stat-icon"}></i>
       <div className="stat-number" data-number="0">
-        <p className="text-center">
+        <p className="text-center" style={{ fontSize: "3rem" }}>
           {counterOn && (
-            <CountUp start={0} end={target} delay={0} duration={5} />
-          )}+
-          {!counterOn && 0}
+            <CountUp
+              start={0}
+              end={target}
+              delay={0}
+              duration={5}
+              style={{ fontSize: "2rem", fontWeight: "600" }}
+            />
+          )}
+          +{!counterOn && 0}
         </p>
       </div>
       <h2 className="stat-title">{title}</h2>
@@ -38,11 +44,11 @@ const Catering = () => {
   );
 
   return (
-    <div className="catering-main-container">
+    <div className="catering-main-container overflow-hidden">
       <section className="catering-main-sub-container text-center">
-        <h1>Best Catering Services</h1>
-        <h2>Welcome to the Catering Services</h2>
-        <button className="catering-book-a-slot">
+        <h1 data-aos="fade-right">Best Catering Services</h1>
+        <h2 data-aos="fade-left">Welcome to the Catering Services</h2>
+        <button className="catering-book-a-slot" data-aos="zoom-in">
           Read More <i className="fa-solid fa-arrow-up-right-from-square"></i>
         </button>
       </section>
@@ -50,15 +56,18 @@ const Catering = () => {
       <section className="catering-services-list d-flex align-items-center justify-content-center">
         <div className="catering-services-sub m-auto d-flex flex-wrap align-items-center justify-content-around">
           <div className="catering-services-left">
-            <h6>We Provide Services</h6>
-            <h2>Our Services</h2>
-            <p>
+            <h6 data-aos="fade-right">We Provide Services</h6>
+            <h2 data-aos="fade-left">Our Services</h2>
+            <p data-aos="zoom-in">
               Te obtinuit ut adepto satis somno. Aliisque institoribus iter
               deliciae vivet vita. Nam exempli gratia, quotiens ego vadam ad
               diversorum peregrinorum Nam exempli gratia, quotiens ego vadam ad
               diversorum peregrinorum.
             </p>
-            <Link className="catering-book-a-slot text-decoration-none">
+            <Link
+              className="catering-book-a-slot text-decoration-none"
+              data-aos="fade-up"
+            >
               Book a Slot
             </Link>
           </div>
@@ -80,14 +89,17 @@ const Catering = () => {
       </section>
 
       <section className="catering-about-us-container d-flex flex-wrap align-items-center justify-content-around">
-        <div className="catering-about-us-img text-center">
+        <div
+          className="catering-about-us-img text-center"
+          data-aos="fade-right"
+        >
           <img
-            src="https://img.freepik.com/free-photo/chef-cooking-kitchen-while-wearing-professional-attire_23-2151208317.jpg?t=st=1721919109~exp=1721922709~hmac=38940f18bdf5e6afe65bc76a7d96fac32896566ade0a7b721bde79d62c3a6b9d&w=360"
+            src="https://img.freepik.com/free-photo/medium-shot-cartoonish-man-with-burger_23-2151033840.jpg?size=626&ext=jpg&ga=GA1.1.204144841.1709562046&semt=ais_hybrid"
             alt="Chef in kitchen"
             loading="lazy"
           />
         </div>
-        <div className="catering-about-us-content">
+        <div className="catering-about-us-content" data-aos="fade-left">
           <h3>Welcome to the Catering Services</h3>
           <h1>BEST ABOUT US</h1>
           <p>
@@ -102,8 +114,8 @@ const Catering = () => {
       </section>
 
       <section className="catering-types-main-container text-center">
-        <h2>Types of Caterings</h2>
-        <h1>Our Category</h1>
+        <h2 data-aos="fade-right">Types of Caterings</h2>
+        <h1 data-aos="fade-left">Our Category</h1>
         <div className="catering-types-container d-flex flex-wrap align-items-center justify-content-around pt-3">
           <CateringType icon="fas fa-ring" title="Weddings" />
           <CateringType icon="fas fa-briefcase" title="Corporate Events" />

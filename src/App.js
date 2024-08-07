@@ -19,6 +19,7 @@ import CustomerSupport from "./Utils/CustomerSupport";
 import FAQs from "./Utils/FAQs";
 import ItemDetails from "./Components/ItemDetails";
 import ErrorPage from "./Utils/ErrorPage";
+import SignUp from "./Components/Signup";
 function App() {
   return (
     <>
@@ -30,6 +31,7 @@ function App() {
         <Route path="/catering" element={<Catering />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<Order />} />
         <Route path="/menu/:id" element={<ItemDetails />} />
@@ -41,7 +43,7 @@ function App() {
           <Route path="customer-support" element={<CustomerSupport />} />
           <Route path="frequently-asked-questions" element={<FAQs />} />
         </Route>
-        <Route path="*" element={<ErrorPage/>}/>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <TopButton />
       <Footer />

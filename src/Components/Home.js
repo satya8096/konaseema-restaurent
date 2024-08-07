@@ -96,7 +96,6 @@ const Home = () => {
     },
   ];
 
-
   const discountImages = [
     "https://img.freepik.com/free-psd/food-template-design_23-2150361540.jpg",
     "https://img.freepik.com/free-psd/delicious-food-restaurant-facebook-template_23-2150095152.jpg",
@@ -120,8 +119,19 @@ const Home = () => {
     </a>
   );
 
-  const Feature = ({ icon, title, description, classnames }) => (
-    <div className={`col-md-4 text-center py-5 feature ${classnames}`}>
+  const Feature = ({
+    icon,
+    title,
+    description,
+    classnames,
+    data_aos,
+    data_aos_delay,
+  }) => (
+    <div
+      className={`col-md-4 text-center py-5 feature ${classnames}`}
+      data-aos={data_aos}
+      data-aos-delay={`${data_aos_delay}`}
+    >
       <i className={`${icon} fa-3x mb-3 text-info`}></i>
       <h3 className="text-warning">{title}</h3>
       <p>{description}</p>
@@ -129,15 +139,18 @@ const Home = () => {
   );
 
   const Card = ({ item }) => (
-    <div className="card text-center bg-transparent border-0">
+    <div
+      className="card text-center bg-transparent border-0"
+      data-aos="zoom-in"
+    >
       <img
         src={item.image}
         className="card-img-top mx-auto d-block"
         alt={item.name}
       />
       <div className="card-body">
-        <h5 className="card-title">{item.name}</h5>
-        <p className="card-text">{item.description}</p>
+        <h5 className="card-title text-center">{item.name}</h5>
+        <p className="card-text text-center">{item.description}</p>
         <a
           href="/"
           className="btn btn-transparent border border-primary text-primary"
@@ -149,7 +162,7 @@ const Home = () => {
   );
 
   const DiscountImage = ({ src }) => (
-    <a href="/" className="col-6">
+    <a href="/" className="col-6" data-aos="zoom-in">
       <img src={src} alt="Discount" className="w-100" />
     </a>
   );
@@ -173,9 +186,12 @@ const Home = () => {
     <div>
       <section
         id="main-section"
-        className="d-flex align-items-center justify-content-around flex-wrap"
+        className="d-flex align-items-center justify-content-around flex-wrap overflow-hidden"
       >
-        <div className="home-main-container-1 text-white d-flex align-items-center justify-content-center flex-column">
+        <div
+          data-aos="fade-right"
+          className="home-main-container-1 text-white d-flex align-items-center justify-content-center flex-column"
+        >
           <img src={"/Images/Logo.png"} className="home-logo" alt="logo" />
           <h1 className="home-main-heading text-warning">
             Delight in Every Bite
@@ -193,7 +209,10 @@ const Home = () => {
             Explore Menu <i className="fa-solid fa-angles-right"></i>
           </Link>
         </div>
-        <div className="home-main-container-img text-center">
+        <div
+          className="home-main-container-img text-center"
+          data-aos="fade-left"
+        >
           <img
             src="https://themewagon.github.io/restoran/img/hero.png"
             alt="Delight in Every Bite"
@@ -207,86 +226,95 @@ const Home = () => {
             title="Fast Delivery"
             description="Our efficient delivery system ensures your food arrives hot and fresh, right at your doorstep."
             classnames={"fast-delivery"}
+            data_aos="fade-up"
+            data_aos_delay="0"
           />
           <Feature
             icon="fas fa-leaf"
             title="Fresh Food"
             description="We use only the freshest ingredients to prepare your meals, guaranteeing a delightful dining experience."
             classnames={"fresh-food"}
+            data_aos="fade-up"
+            data_aos_delay="200"
           />
           <Feature
             icon="fas fa-truck"
             title="Free Delivery"
             description="Enjoy our delicious food with the added benefit of free delivery on all orders above a certain amount."
             classnames={"free-delivery "}
+            data_aos="fade-up"
+            data_aos_delay="400"
           />
         </div>
       </section>
-      <div className="food-categories-heading-container d-flex justify-content-between align-items-center flex-wrap text-center">
+      <div className="food-categories-heading-container d-flex justify-content-between align-items-center flex-wrap text-center  overflow-hidden">
         <div>
-          <h2>
+          <h2 data-aos="fade-right">
             Best <span className="text-danger">Delivered</span> <br />{" "}
             Categories
           </h2>
         </div>
         <div>
-          <p>
+          <p data-aos="fade-left">
             Here Are Some of Our Best Distributed Categories. If You Want You
             Order From Here.
           </p>
         </div>
       </div>
-      <div className="food-categories-main-section-1 d-flex justify-content-around gap-3 flex-wrap pt-5">
+      <div className="food-categories-main-section-1 d-flex justify-content-around gap-3 flex-wrap pt-5 overflow-hidden">
         {foodCategories.map((item, index) => (
           <Card key={index} item={item} />
         ))}
       </div>
-      <div className="pt-5 pb-5 ps-4">
-        <h2>Top Discounts</h2>
+      <div className="pt-5 pb-5 ps-4 overflow-hidden">
+        <h2 data-aos="fade-right">Top Discounts</h2>
       </div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap overflow-hidden">
         {discountImages.map((src, index) => (
           <DiscountImage key={index} src={src} />
         ))}
       </div>
-      <div
-        className="testimonials-container"
-      >
+      <div className="testimonials-container overflow-hidden" data-aos="fade">
         <h3 className="text-center m-2">Happy Customers</h3>
-        <p className="text-center">We Believe In Customer Satisfaction. Here Are Some Testimonials By Our Worthy Customers</p>
+        <p className="text-center">
+          We Believe In Customer Satisfaction. Here Are Some Testimonials By Our
+          Worthy Customers
+        </p>
         <div
           id="carouselExampleInterval"
           className="carousel slide"
           data-bs-ride="carousel"
         >
           <div className="carousel-inner">
-            {
-              testimonials.map((each,index)=>{
-                return (
-                  <div className={each.carouselItemClass}data-bs-interval="4000" key={index}>
-                    <img
-                      src="https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-72292.jpg?ga=GA1.1.204144841.1709562046&semt=ais_hybrid"
-                      className="d-block w-100"
-                      alt="..."
-                    />
-                    <div className="carousel-caption">
-                      <i
-                        className="fa-solid fa-circle-user text-warning"
-                        style={{ fontSize: "4rem",margin:"0.6rem" }}
-                      ></i>
-                      <h5>{each.userName}</h5>
-                      <div>
-                       {createStars(each.ratingStars)}
-                      </div>
-                      <p className="text-center">
-                        {each.testimonial}
-                      </p>
-                      <p className="text-center">{each.signature}</p>
-                    </div>
+            {testimonials.map((each, index) => {
+              return (
+                <div
+                  className={each.carouselItemClass}
+                  data-bs-interval="4000"
+                  key={index}
+                >
+                  <img
+                    src="https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-72292.jpg?ga=GA1.1.204144841.1709562046&semt=ais_hybrid"
+                    className="d-block w-100"
+                    alt="..."
+                  />
+                  <div className="carousel-caption">
+                    <i
+                      className="fa-solid fa-circle-user text-warning"
+                      style={{ fontSize: "4rem", margin: "0.6rem" }}
+                    ></i>
+                    <h5>{each.userName}</h5>
+                    <div>{createStars(each.ratingStars)}</div>
+                    <p className="text-center">
+                      <i className="fa-solid fa-quote-left"></i>{" "}
+                      {each.testimonial}{" "}
+                      <i className="fa-solid fa-quote-right"></i>
+                    </p>
+                    <p className="text-center">{each.signature}</p>
                   </div>
-                );
-              })
-            }
+                </div>
+              );
+            })}
           </div>
           <button
             className="carousel-control-prev"
@@ -294,7 +322,10 @@ const Home = () => {
             data-bs-target="#carouselExampleInterval"
             data-bs-slide="prev"
           >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
@@ -303,7 +334,10 @@ const Home = () => {
             data-bs-target="#carouselExampleInterval"
             data-bs-slide="next"
           >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>

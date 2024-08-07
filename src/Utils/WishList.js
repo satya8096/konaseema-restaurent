@@ -47,9 +47,20 @@ const WishList = () => {
         <div className="wishlist-main-container d-flex flex-wrap justify-content-around">
           {wishlist.map((item,index) => {
             return (
-              <div className="col mb-4" key={index}>
-                <div className="card menu-items-card" style={{position:"relative"}}>
-                  <i className="fa-regular fa-trash-can position-absolute text-danger" style={{right:"1rem",top:'1rem',cursor:"pointer",zIndex:"1"}}></i>
+              <div className="col mb-4" key={index} data-aos="zoom-in">
+                <div
+                  className="card menu-items-card"
+                  style={{ position: "relative" }}
+                >
+                  <i
+                    className="fa-regular fa-trash-can position-absolute text-danger"
+                    style={{
+                      right: "1rem",
+                      top: "1rem",
+                      cursor: "pointer",
+                      zIndex: "1",
+                    }}
+                  ></i>
                   <img
                     src={item.imageUrl}
                     className="card-img-top"

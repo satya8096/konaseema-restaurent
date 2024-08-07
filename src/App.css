@@ -310,8 +310,11 @@ p {
   background: rgba(255, 255, 255, 0.9);
 }
 .testimonials-container {
-  width: 60%;
+  width: 70%;
   margin: 2rem auto;
+}
+.carousel-caption {
+  height: 27rem;
 }
 /* Our story page styles */
 
@@ -322,9 +325,11 @@ p {
   padding: 3rem;
 }
 .about-restaurant-img img,
-.how-we-started-content img {
+.how-we-started-img img {
   width: 22rem;
   text-align: center;
+  border-radius: 40% 60% 80% 100%;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.595);
 }
 .about-restaurant-content,
 .how-we-started-content {
@@ -353,7 +358,6 @@ p {
 }
 
 .owner-img {
-  border-radius: 50%;
   width: 150px;
   height: 150px;
   display: block;
@@ -400,7 +404,6 @@ p {
 }
 .our-story-slogan {
   font-size: 1.5rem;
-  animation: fadeInUp 2s;
 }
 
 .book-table-section {
@@ -437,10 +440,12 @@ p {
 }
 
 .booking-form {
-  background-color: #f8f9fa;
-  padding: 20px;
+  background-color: #f4d03f;
+  background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
+
+  padding: 3rem;
   border-radius: 10px;
-  width: 50%;
+  width: 55%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -461,9 +466,6 @@ p {
   outline: none;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-.book-table-form-group input:focus {
-  border: 2px solid #173199;
 }
 
 .book-table-submit-btn {
@@ -505,23 +507,32 @@ p {
   width: 20rem;
   margin: 1rem;
   border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
+  color: white;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(38, 51, 97, 1) 0%,
+    rgba(65, 143, 222, 1) 79%
+  );
 }
 
 .chef-card img {
-  border-radius: 50%;
+  border-radius: 30% 1% 30% 1%;
+  border-radius: 30% 50%;
   margin-bottom: 10px;
 }
 
 .chef-card h2 {
   margin-bottom: 10px;
-  color: #ff6f61;
 }
 
 .chef-card p {
   margin-bottom: 10px;
+}
+.about-owner img {
+  border-radius: 30% 60%;
 }
 
 @media (max-width: 768px) {
@@ -554,7 +565,8 @@ p {
   min-height: 9rem;
 }
 .category-filter-card img {
-  border-radius: 100%;
+  /* border-radius: 100%; */
+  border-radius: 50% 30%;
   width: 6rem;
 }
 .category-filter-card h6 {
@@ -613,19 +625,45 @@ p {
 .catering-services-sub {
   width: 75%;
   height: 60%;
-  background-color: white;
+  color: white;
+  background-image: radial-gradient(
+    circle 815px at 23.4% -21.8%,
+    rgba(9, 29, 85, 1) 0.2%,
+    rgba(0, 0, 0, 1) 100.2%
+  );
   border-radius: 0.5rem;
 }
 .catering-services-left,
 .catering-services-right {
   width: 22rem;
 }
-.catering-about-us-conatainer {
-  height: 100vh;
+.catering-about-us-container {
+  min-height: 100vh;
+  background: url("https://preview.vwthemesdemo.com/vw-catering/wp-content/themes/vw-catering-pro/assets/images/services/servicesbg.jpg")
+    no-repeat center center/cover;
+  background-attachment: fixed;
 }
 .catering-about-us-img,
 .catering-about-us-content {
+  margin: 2rem auto;
   width: 45%;
+}
+.catering-about-us-img img {
+  border-radius: 1rem;
+  width: 50%;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.45);
+}
+.catering-about-us-content {
+  width: 50%;
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.45);
+  background-image: radial-gradient(
+    circle 815px at 23.4% -21.8%,
+    rgba(9, 29, 85, 1) 0.2%,
+    rgba(0, 0, 0, 1) 100.2%
+  );
 }
 .event-icon-container {
   font-size: 3rem;
@@ -665,14 +703,14 @@ p {
 .stat-item {
   width: 20%;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   position: relative;
   overflow: hidden;
 }
 
 .stat-icon {
   font-size: 3rem;
-  color: #ff6f61;
+  color: rgba(9, 29, 85, 1);
   margin-bottom: 10px;
 }
 
@@ -699,19 +737,6 @@ p {
 
 [data-aos="fade-up"] {
   animation: counterAnimation 1s ease-out;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .stat-item {
-    flex: 1 1 calc(50% - 40px);
-  }
-}
-
-@media (max-width: 576px) {
-  .stat-item {
-    flex: 1 1 100%;
-  }
 }
 
 /* Menu Item Details */
@@ -810,19 +835,21 @@ p {
   color: #555;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .time-item {
-    max-width: 100%;
-  }
-}
-
 .contact-details-section {
   padding: 4rem 2rem;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.617) 100%,
+      rgba(0, 0, 0, 0.671) 100%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url(" https://img.freepik.com/free-photo/lamp-design-with-digital-art-style_23-2151153879.jpg?t=st=1723041017~exp=1723044617~hmac=473714e2b12297be4875ffaca33a5e6d565d37c43126f30eaa2684fa43e1e168&w=1060")
+      no-repeat center center/cover;
+  background-attachment: fixed;
 }
 .contact-form,
 .contact-content {
-  width: 40%;
+  width: 45%;
 }
 .contact-content-sub {
   width: 50%;
@@ -837,6 +864,7 @@ p {
   box-sizing: border-box;
   margin-top: 6px;
   margin-bottom: 16px;
+  outline: none;
   resize: vertical;
 }
 
@@ -856,14 +884,18 @@ p {
 
 .contact-form {
   border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.125);
+  padding: 2rem;
 }
+
 .contact-maps-container iframe {
   width: 100%;
 }
 .contact-content {
   gap: 2rem;
+  color: white;
 }
 .contact-content i {
   font-size: 2.2rem;
@@ -903,6 +935,7 @@ p {
   text-align: left;
   border-bottom: 1px solid #ddd;
   padding: 16px;
+  white-space: nowrap;
 }
 #recent-order-table th,
 #previous-order-table th {
@@ -954,49 +987,22 @@ p {
   padding: 20px;
   background: #00000038;
   border-radius: 10px;
-  height: 24rem;
-  color: white;
   backdrop-filter: blur(5px);
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.743);
 }
-.cart-title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.cart-items {
-  padding: 2rem;
-  overflow-y: scroll;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  width: 48%;
-  height: 100%;
-}
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-}
-.cart-item img {
-  width: 3rem;
-}
-.item-name {
-  flex: 1;
-}
-.item-price,
-.item-total {
-  width: 80px;
-  text-align: right;
+.cart-images {
+  width: 4rem;
 }
 .quantity-controls {
   display: flex;
   align-items: center;
-  padding-left: 1rem;
 }
 .quantity-controls span {
-  width: 1.5rem;
+  width: 2rem;
   text-align: center;
+}
+.items-total-price {
+  width: 3rem;
 }
 
 .quantity-controls button {
@@ -1014,22 +1020,6 @@ p {
 
 .quantity-controls button:hover {
   background-color: #ff4a42;
-}
-
-.cart-summary {
-  text-align: right;
-  width: 45%;
-}
-
-.summary-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.total {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .cart-checkout-btn {
@@ -1055,7 +1045,6 @@ p {
 .cart-checkout-btn {
   border: 2px solid #ffc107;
   color: black;
-  color: #ffc107;
 }
 .cart-checkout-btn i {
   transition: all 0.5s linear;
@@ -1070,16 +1059,20 @@ p {
   transform: translateX(10px);
   color: white;
 }
-
-/* Login Styles */
-
-.login-container {
+.empty-cart {
+  width: 20rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5rem auto;
   padding: 2rem;
-  padding-top: 5rem;
+}
+
+/* Sign Up Styles */
+.signup-main-container,
+.login-main-container {
+  min-height: 100vh;
   background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.632) 100%,
@@ -1089,99 +1082,17 @@ p {
     url("https://img.freepik.com/free-photo/grilled-beef-pork-with-fresh-guacamole-generated-by-ai_188544-38177.jpg?t=st=1722096831~exp=1722100431~hmac=3a52c28f57358f29979e0713042ff0d387929243469b7b115d89cd4cb74983f5&w=1060")
       no-repeat center center/cover;
   background-attachment: fixed;
-  /* background: linear-gradient(to right, #ff6f61, #ff4a42); */
 }
-
-.login-container-form-container {
-  background-color: #00000059;
-  padding: 40px;
-  color: white;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.527);
-  width: 40%;
-  text-align: center;
+.signup-card {
+  width: 25rem;
+  margin-top: 3rem;
+  background-color: white;
+  border-radius: 6px;
 }
-
-.login-form .form-title,
-.signup-form .form-title {
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 20px;
-}
-
-.login-form .form-group,
-.signup-form .form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.login-form .form-group label,
-.signup-form .form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.login-form .form-group input,
-.signup-form .form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.login-form .password-container,
-.signup-form .password-container {
-  position: relative;
-}
-
-.login-form .toggle-password,
-.signup-form .toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.submit-btn,
-.google-btn {
-  background-color: #ff6f61;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.google-btn {
-  background-color: #4285f4;
-}
-
-.submit-btn:hover {
-  background-color: #ff4a42;
-}
-
-.google-btn:hover {
-  background-color: #357ae8;
-}
-
-.form-switch {
-  margin-top: 20px;
-  color: white;
-}
-
-.form-switch span {
-  color: #ff6f61;
-  cursor: pointer;
-}
-
-.form-error {
-  color: red;
-  margin-bottom: 20px;
+.login-card {
+  width: 22rem;
+  background-color: white;
+  border-radius: 6px;
 }
 
 /* Profile Styles */
@@ -1221,6 +1132,7 @@ p {
 }
 .profile-side-nav ul li a {
   color: black;
+  white-space: nowrap;
 }
 #profile-information-container {
   margin-left: 17rem;
@@ -1234,7 +1146,10 @@ p {
   box-shadow: 0px 0px 2px black;
   width: calc(100% - 18rem);
 }
-
+.profile-details-container {
+  background: transparent;
+  background-color: #002bff;
+}
 .profile-details-container form input[type="text"],
 .profile-details-container form textarea,
 .profile-details-container form select {
@@ -1294,9 +1209,7 @@ p {
   clear: both;
 }
 .profile-save-butttons {
-  position: absolute;
-  bottom: 4rem;
-  right: 3rem;
+  margin-top: 3rem;
   width: 20rem;
 }
 
@@ -1485,13 +1398,20 @@ footer ul li a:hover {
     height: 12rem;
     gap: 1rem;
   }
+  .food-categories-main-section-1 .card {
+    width: 95%;
+    text-align: center;
+  }
   .testimonials-container {
     width: 100%;
     margin: 2rem auto;
   }
-    .testimonials-container img{
-      height: 25rem;
-    }
+  .testimonials-container img {
+    height: 25rem;
+  }
+  .carousel-caption {
+    height: 23rem;
+  }
   .carousel-caption h5,
   .carousel-caption p,
   .carousel-caption i {
@@ -1532,11 +1452,18 @@ footer ul li a:hover {
   }
   .our-chefs {
     padding: 1rem;
+    margin: 0;
+  }
+  .chef-card {
+    width: 100%;
   }
   .about-owner {
     padding: 1rem;
     width: 95%;
     margin: auto;
+  }
+  .about-owner img {
+    width: 60%;
   }
   /* Menu Item Details */
   .menu-items-card {
@@ -1544,6 +1471,7 @@ footer ul li a:hover {
     margin: auto;
     height: 24rem;
     color: black;
+    margin-bottom: 2rem;
   }
   .item-img,
   .item-details {
@@ -1592,8 +1520,14 @@ footer ul li a:hover {
   .contact-section-main-container {
     padding: 1rem;
   }
+  .contact-details-section {
+    padding: 4rem 0.8rem;
+  }
   .contact-form,
   .contact-content {
+    width: 100%;
+  }
+  .contact-form form {
     width: 100%;
   }
   .contact-content-sub {
@@ -1611,7 +1545,7 @@ footer ul li a:hover {
   .timings-table tbody tr th h2,
   .timings-table tbody tr th p {
     padding: 0.5rem 0rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
     border-bottom: 2px solid black;
   }
   /* Orders styles */
@@ -1620,14 +1554,32 @@ footer ul li a:hover {
     width: 100%;
     padding: 1rem;
   }
-  #recent-order-table th,
+  .recent-order-container,
+  .previous-order-container {
+    margin: 2rem 0rem;
+    overflow-x: scroll;
+  }
+  #recent-order-table {
+    width: 100%;
+  }
+  .order-price {
+    width: 8rem;
+  }
+  .order-status {
+    width: 14rem;
+  }
+  #recent-order-table tbody tr th,
   #recent-order-table td,
   #previous-order-table th,
   #previous-order-table td {
-    width: 40rem;
+    width: 10rem;
+    padding: 1rem;
   }
 
   /* Cart Styles */
+  .cart-main-sub-container {
+    overflow-x: scroll;
+  }
   .cart-items {
     padding: 1rem;
     width: 20rem;
@@ -1644,12 +1596,11 @@ footer ul li a:hover {
     width: 1rem;
   }
   /* Login Styles */
-  .login-container {
-    padding: 1rem;
+  .signup-card {
+    width: 20rem;
   }
-  .login-container-form-container {
-    width: 100%;
-    padding: 1.5rem;
+  .login-card {
+    width: 20rem;
   }
   /* Profile Styles */
   .profile-main-container {
@@ -1678,13 +1629,11 @@ footer ul li a:hover {
     flex-direction: row;
   }
   .profile-side-nav ul li {
-    width: 10rem;
-    margin: 1rem;
+    margin: 0.6rem;
   }
   .profile-side-nav ul li a {
     margin: 1.1rem 0rem;
     display: block;
-    width: 15rem;
     float: left;
     flex-direction: row;
   }
@@ -1745,9 +1694,12 @@ footer ul li a:hover {
     width: 85%;
     margin: 2rem auto;
   }
-   .testimonials-container img{
-      height: 24rem;
-    }
+  .testimonials-container img {
+    height: 24rem;
+  }
+  .carousel-caption {
+    height: 23rem;
+  }
   .about-restaurant {
     padding: 1.5rem;
     text-align: justify;
@@ -1831,6 +1783,9 @@ footer ul li a:hover {
   .stat-item {
     width: 100%;
   }
+  .cart-main-sub-container {
+    overflow-x: scroll;
+  }
   /* Contact Styles */
   .contact-section-main-container {
     padding: 1rem;
@@ -1893,9 +1848,12 @@ footer ul li a:hover {
     width: 85%;
     margin: 2rem auto;
   }
-   .testimonials-container img{
-      height: 24rem;
-    }
+  .testimonials-container img {
+    height: 24rem;
+  }
+  .carousel-caption {
+    height: 23rem;
+  }
   /* Catering Styles */
   .catering-services-sub {
     gap: 1rem;

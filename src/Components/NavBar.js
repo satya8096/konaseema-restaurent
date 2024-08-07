@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import React from "react";
-
 const NavBar = () => {
-
-  const handleScroll = ()=> {
-      const navbar = document.querySelector(".navbar");
+  const handleScroll = () => {
+    const navbar = document.querySelector(".navbar");
     if (window.scrollY > 50) {
       navbar.classList.add("scrolled");
     } else {
       navbar.classList.remove("scrolled");
     }
-  }
-  window.onscroll = ()=>{handleScroll()}
+  };
+  window.onscroll = () => {
+    handleScroll();
+  };
   return (
-    <nav className="navbar navbar-expand-xl">
+    <nav className="navbar navbar-expand-xl" data-aos="fade-down">
       <div className="container-fluid">
         <h4>
           <Link className="navbar-brand" to="/">
@@ -72,20 +72,20 @@ const NavBar = () => {
                 <span className="badge bg-danger">3</span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                id="nav-profile-logo"
-                className="nav-link nav-profile-logo text-center"
-                to="/profile"
-              >
-                S
-              </Link>
-            </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  id="nav-profile-logo"
+                  className="nav-link nav-profile-logo text-center"
+                  to="/profile"
+                >
+                  S
+                </Link>
+              </li>
           </ul>
         </div>
       </div>

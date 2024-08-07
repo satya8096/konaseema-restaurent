@@ -62,28 +62,27 @@ const Order = () => {
     },
   ];
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
   const filteredOrders = orders.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
     <>
-      <div className="order-main-container d-flex align-items-center  flex-column gap-2">
-        <div className="d-flex align-items-center justify-content-center">
+      <div className="order-main-container d-flex align-items-center  flex-column gap-2 overflow-hidden">
+        <div
+          className="d-flex align-items-center justify-content-center"
+          data-aos="fade-right"
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/128/2945/2945694.png"
             alt="track"
             style={{ width: "3rem" }}
           />
-          <h3>Track Your Order Here</h3>
+          <h3 data-aos="fade-left">Track Your Order Here</h3>
         </div>
-        <h6>Fast and Free Delivery</h6>
-        <div className="recent-order-container" style={{ overflowX: "auto" }}>
-          <h4>Recent Orders</h4>
-          <table className="" id="recent-order-table">
+        <h6 data-aos="fade-up">Fast and Free Delivery</h6>
+        <div className="recent-order-container">
+          <h4 data-aos="fade-down">Recent Orders</h4>
+          <table className="" id="recent-order-table" data-aos="zoom-in">
             <tbody>
               <tr>
                 <th>S. No</th>
@@ -113,8 +112,8 @@ const Order = () => {
                         />
                       </td>
                       <td>{item.name}</td>
-                      <td>Rs. {item.price} /-</td>
-                      <td>
+                      <td className="order-price">Rs. {item.price} /-</td>
+                      <td className="order-status">
                         {item.deliveryStatus === "Preparing" ? (
                           <i className="fa-solid fa-hourglass-half me-2"></i>
                         ) : (
@@ -129,23 +128,20 @@ const Order = () => {
           </table>
         </div>
 
-        <h4>Search Your Orders</h4>
-        <div className="order-search-bar">
+        <h4 data-aos="fade-right">Search Your Orders</h4>
+        <div className="order-search-bar" data-aos="fade-left">
           <input
             type="text"
             placeholder="Search orders..."
             value={searchTerm}
-            onChange={handleSearch}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <i className="fa-solid fa-magnifying-glass"></i>
         </div>
 
-        <div
-          className="previous-order-container "
-          style={{ overflowX: "auto" }}
-        >
-          <h4>Previous Orders</h4>
-          <table className="" id="previous-order-table">
+        <div className="previous-order-container">
+          <h4 data-aos="fade-down">Previous Orders</h4>
+          <table className="" id="previous-order-table" data-aos="zoom-in">
             <tbody>
               <tr>
                 <th>S. No</th>
@@ -172,8 +168,8 @@ const Order = () => {
                         />
                       </td>
                       <td>{item.name}</td>
-                      <td>Rs. {item.price} /-</td>
-                      <td>
+                      <td className="order-price">Rs. {item.price} /-</td>
+                      <td className="order-status">
                         <i className="fa-solid fa-circle-check me-2"></i>
                         {item.deliveryStatus}
                       </td>
@@ -183,7 +179,7 @@ const Order = () => {
             </tbody>
           </table>
           {filteredOrders.length === 0 && (
-            <div className="text-center text-danger m-5">
+            <div className="text-center text-danger m-5" data-aos="zoom-in">
               Search "{searchTerm}" Results Not Found
             </div>
           )}

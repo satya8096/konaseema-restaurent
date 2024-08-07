@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-
+import { ToastContainer } from "react-toastify";
 const Profile = () => {
   return (
-    <div className="profile-main-container">
-      <div className="profile-side-nav">
+    <div className="profile-main-container overflow-hidden">
+      <div className="profile-side-nav" data-aos="fade-right">
         <ul className="d-flex list-unstyled">
           <li className="text-decoration-none">
             Hello, <br /> Satyanarayana
@@ -56,9 +56,11 @@ const Profile = () => {
       <div
         className="profile-information-container"
         id="profile-information-container"
+        data-aos="fade-left"
       >
         <Outlet />
       </div>
+      <ToastContainer />
     </div>
   );
 };

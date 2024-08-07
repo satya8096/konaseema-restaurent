@@ -75,7 +75,7 @@ const FAQs = () => {
   ];
 
   return (
-    <div>
+    <div data-aos="zoom-in">
       <h4>Frequently Asked Questions</h4>
       <div className="accordion" id="accordionExample">
         {restaurantFAQ.map((item, index) => (

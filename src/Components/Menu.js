@@ -139,18 +139,21 @@ const createStars = (rating) => {
 };
 
 const MenuItem = ({ item }) => (
-    <div className="card menu-items-card">
-      <img src={item.imageUrl} className="card-img-top" alt={item.title} />
-      <div className="card-body text-center">
-        <h5 className="card-title">{item.title}</h5>
-        <p className="card-text text-center">{item.description}</p>
-        {createStars(item.rating)}
-        <div className="d-flex align-items-center justify-content-around">
-          <button className="btn btn-success">+ Add to Cart</button>
-          <button className="btn btn-success">Read More</button>
-        </div>
+  <div
+    className="card menu-items-card"
+    data-aos="zoom-out"
+  >
+    <img src={item.imageUrl} className="card-img-top" alt={item.title} />
+    <div className="card-body text-center">
+      <h5 className="card-title">{item.title}</h5>
+      <p className="card-text text-center">{item.description}</p>
+      {createStars(item.rating)}
+      <div className="d-flex align-items-center justify-content-around">
+        <button className="btn btn-success">+ Add to Cart</button>
+        <button className="btn btn-success">Read More</button>
       </div>
     </div>
+  </div>
 );
 
 const Menu = () => {
@@ -167,14 +170,16 @@ const Menu = () => {
 
   return (
     <>
-      <div className="main-menu-container">
+      <div className="main-menu-container overflow-hidden">
         <div className="search-bar-menu">
           <div className="container">
-            <h2 className="text-center mb-2">Explore Our Menu</h2>
-            <h6 className="text-center mb-5">
+            <h2 className="text-center mb-2" data-aos="fade-right">
+              Explore Our Menu
+            </h2>
+            <h6 className="text-center mb-5" data-aos="fade-left">
               Some Trendy And Popular Courses Offered
             </h6>
-            <div className="row mb-4">
+            <div className="row mb-4" data-aos="zoom-in">
               <div className="col-md-8 offset-md-2">
                 <div className="input-group">
                   <input
@@ -194,13 +199,19 @@ const Menu = () => {
         </div>
         <div className="category-filter-container d-flex justify-content-around flex-wrap">
           {Array.from({ length: 8 }).map((_, index) => (
-            <div className="category-filter-card text-center" key={index}>
+            <div
+              className="category-filter-card text-center"
+              key={index}
+              data-aos="zoom-in"
+            >
               <img src="https://via.placeholder.com/150" alt="category" />
               <h6>Dish Name</h6>
             </div>
           ))}
         </div>
-        <h4 className="ms-5 mt-5">Top Dishes Near You</h4>
+        <h4 className="ms-5 mt-5" data-aos="fade-right">
+          Top Dishes Near You
+        </h4>
         <div className="items-container d-flex align-items-center justify-content-around flex-wrap">
           {menuItems.length === 0 && (
             <div
@@ -223,7 +234,7 @@ const Menu = () => {
                 </div>
               )}
         </div>
-        <div aria-label="..." className="pb-3">
+        <div aria-label="..." className="pb-3" data-aos="fade-left">
           <ul className="pagination justify-content-center">
             <li className="page-item disabled">
               <a className="page-link" href="v">

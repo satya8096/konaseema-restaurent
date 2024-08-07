@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const ItemDetails = () => {
   const product = [
     {
@@ -31,19 +31,29 @@ const ItemDetails = () => {
 
   return (
     <>
-      <div className="menu-item-details-container">
-        <h2 className="text-center border border-bottom border-warning">
+      <div className="menu-item-details-container overflow-hidden">
+        <Link
+          className="btn btn-primary mb-3 ms-2"
+          to={"/menu"}
+          data-aos="fade-left"
+        >
+          <i className="fa-solid fa-angles-left"></i> Back To Menu
+        </Link>
+        <h2
+          className="text-center border border-bottom border-warning"
+          data-aos="fade-down"
+        >
           Item Details
         </h2>
         <div className="item-datails-container d-flex justify-content-center flex-wrap">
-          <div className="item-img">
+          <div className="item-img" data-aos="zoom-in">
             <img
               src="https://img.freepik.com/free-photo/pre-prepared-food-showcasing-ready-eat-delicious-meals-go_23-2151431678.jpg?t=st=1722226596~exp=1722230196~hmac=3b6947bb68ae799970772deebec85d98caab50eb97bd432c969485ed6f2598e3&w=996"
               alt="img"
               width={"100%"}
             />
           </div>
-          <div className="item-details">
+          <div className="item-details" data-aos="fade-left">
             <h4>Chicken Pakodi</h4>
             <p>
               Deep-fried savory snack, made from urad dal, onions and spices
@@ -60,7 +70,7 @@ const ItemDetails = () => {
           </div>
         </div>
         <div className="reviews-container d-flex justify-content-around mt-5 flex-wrap gap-4">
-          <div className="post-review">
+          <div className="post-review" data-aos="fade-right">
             <h3>Add Your Review</h3>
             <form>
               <label className="mt-3">Name</label>
@@ -86,7 +96,7 @@ const ItemDetails = () => {
               </button>
             </form>
           </div>
-          <div className="comments-container">
+          <div className="comments-container" data-aos="fade-left">
             <div>
               <h5>
                 Overal Rating (
@@ -116,10 +126,12 @@ const ItemDetails = () => {
                 </div>
               );
             })}
-            <div aria-label="...">
+            <div aria-label="..." data-aos="zoom-in">
               <ul className="pagination justify-content-end">
                 <li className="page-item disabled">
-                  <a className="page-link" href="v">Previous</a>
+                  <a className="page-link" href="v">
+                    Previous
+                  </a>
                 </li>
                 <li className="page-item">
                   <a className="page-link" href="v">

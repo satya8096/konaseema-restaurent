@@ -8,7 +8,7 @@ const ProfileNotifications = () => {
   ];
   return (
     <>
-      <div>
+      <div data-aos="zoom-in">
         <h4>Your Notifications</h4>
         <div>
           {Notifications.length === 0 && (
@@ -17,11 +17,10 @@ const ProfileNotifications = () => {
             </div>
           )}
           <ul>
-            {Notifications.map((each,index) => {
+            {Notifications.map((each, index) => {
               return (
-                <li className="" style={{listStyleType:"none"}} key={index}>
-                  <i className="fa-solid fa-envelope"></i>{" "}
-                  {each.message}
+                <li className="" style={{ listStyleType: "none" }} key={index}>
+                  <i className="fa-solid fa-envelope"></i> {each.message}
                 </li>
               );
             })}

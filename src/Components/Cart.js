@@ -1,154 +1,169 @@
-import React, { useState,useCallback } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+
 const Cart = () => {
-  const initialItems = [
-    { id: 1, name: "Pizza", price: 12, quantity: 1 },
-    { id: 2, name: "Burger", price: 8, quantity: 1 },
-    { id: 3, name: "Pasta", price: 10, quantity: 1 },
-    { id: 4, name: "Salad", price: 6, quantity: 1 },
-    { id: 5, name: "Pizza", price: 12, quantity: 1 },
-    { id: 6, name: "Burger", price: 8, quantity: 1 },
-    { id: 7, name: "Pasta", price: 10, quantity: 1 },
-    { id: 8, name: "Salad", price: 6, quantity: 1 },
+  const initialCart = [
+    {
+      id: 1,
+      name: "Product 1",
+      price: 10.0,
+      quantity: 1,
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      price: 20.0,
+      quantity: 2,
+    },
+    {
+      id: 3,
+      name: "Product 3",
+      price: 15.0,
+      quantity: 1,
+    },
   ];
 
-  const [items, setItems] = useState(initialItems);
+  const [cart, setCart] = useState(initialCart);
+  const discount = 5.0; // fixed discount
+  const deliveryCharges = 3.0; // fixed delivery charges
 
-  const handleQuantityChange = useCallback((id, increment) => {
-    setItems((prevItems) => {
-      prevItems.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + increment) }
-          : item
-      );
-    });
-  }, []);
-
-  const handleEmptyCart = (
-    <div className="text-center m-5">
-      <h4 className="text-center"> Your Cart is Empty !</h4>
-      <p className="text-center">Please add some items</p>
-      <Link className="btn btn-info" to={"/menu"}>
-        Order Now
-      </Link>
-    </div>
-  );
-
-  const calculateTotal = useCallback(() => {
-    const subtotal = items.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
+  const handleIncrement = (id) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
     );
-    const tax = subtotal * 0.1;
-    const deliveryCharge = (items.length !== 0 && 5) || 0;
-    return {
-      subtotal,
-      tax,
-      deliveryCharge,
-      total: subtotal + tax + deliveryCharge,
-    };
-  }, [items]);
+  };
 
-  const { subtotal, tax, deliveryCharge, total } = calculateTotal()
+  const handleDecrement = (id) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id
+          ? { ...item, quantity: Math.max(1, item.quantity - 1) }
+          : item
+      )
+    );
+  };
+
+  const handleRemoveItem = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
+
+  const calculateSubtotal = () => {
+    return cart
+      .reduce((total, item) => total + item.price * item.quantity, 0)
+      .toFixed(2);
+  };
+
+  const calculateTotal = () => {
+    const subtotal = parseFloat(calculateSubtotal());
+    return (subtotal - discount + deliveryCharges).toFixed(2);
+  };
 
   return (
     <div className="cart-container">
-      <h1 className="cart-title text-white">Your Cart</h1>
-      <p className="text-center text-white">
-        We Provide Good Food For Your Family!
-      </p>
-      <div className="cart-main-sub-container d-flex flex-wrap justify-content-around">
-        <div className="cart-items">
-          <h4>Your Cart Items ({items.length})</h4>
-          <table>
-            <tbody>
+      {cart.length !== 0 && (
+        <h2 className="text-center text-warning">Your Cart</h2>
+      )}
+      {cart.length === 0 ? (
+        <div className="text-center empty-cart">
+          <h2 className="text-white">Cart</h2>
+          <p className="text-white text-center">Your cart is empty !</p>
+          <button className="btn btn-outline-warning">Order Now</button>
+        </div>
+      ) : (
+        <div className="cart-main-sub-container" data-aos="zoom-in">
+          <table className="table text-white">
+            <thead>
               <tr>
-                <td>{items.length === 0 && handleEmptyCart}</td>
+                <th>#</th>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
               </tr>
-              {items.map((item, index) => (
-                <tr className="cart-item" key={item.id}>
-                  <td className="me-2">{index + 1}.</td>
+            </thead>
+            <tbody>
+              {cart.map((item, index) => (
+                <tr key={item.id}>
+                  <td>{index + 1}</td>
                   <td>
                     <img
-                      src="https://product-assets.faasos.io/eatsure_cms/production/44df4975-8ff8-49dd-8e66-58d4d9a80a87.jpg?d=375&tr:w-undefined,h-undefined"
-                      alt="cart-img"
+                      src="https://img.freepik.com/free-photo/roasted-chicken-salad_23-2147765429.jpg?ga=GA1.1.204144841.1709562046&semt=sph"
+                      alt="img"
+                      className="cart-images"
                     />
                   </td>
-                  <td className="item-name ps-2">{item.name}</td>
-                  <td className="item-price">${item.price}</td>
-                  <td className="quantity-controls">
-                    <button onClick={() => handleQuantityChange(item.id, -1)}>
-                      -
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => handleQuantityChange(item.id, 1)}>
-                      +
-                    </button>
+                  <td>{item.name}</td>
+                  <td>${item.price.toFixed(2)}</td>
+                  <td>
+                    <div className="d-flex quantity-controls">
+                      <button
+                        className="btn btn-outline-secondary me-2"
+                        onClick={() => handleDecrement(item.id)}
+                      >
+                        -
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button
+                        className="btn btn-outline-secondary ms-2"
+                        onClick={() => handleIncrement(item.id)}
+                      >
+                        +
+                      </button>
+                    </div>
                   </td>
-                  <td className="item-total">
+                  <td className="items-total-price">
                     ${(item.price * item.quantity).toFixed(2)}
                   </td>
-                  <td className="ps-4">
-                    <i className="fa-solid fa-trash-can"></i>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleRemoveItem(item.id)}
+                    >
+                      Remove
+                    </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          <div className="d-flex justify-content-center">
+            <div
+              className="p-3"
+              style={{
+                width: "20rem",
+                backgroundColor: "white",
+                borderRadius: "6px",
+              }}
+            >
+              <h5>Summary</h5>
+              <hr />
+              <div className="d-flex justify-content-between">
+                <span>Subtotal:</span>
+                <span>${calculateSubtotal()}</span>
+              </div>
+              <div className="d-flex justify-content-between">
+                <span>Discount:</span>
+                <span>-${discount.toFixed(2)}</span>
+              </div>
+              <div className="d-flex justify-content-between">
+                <span>Delivery Charges:</span>
+                <span>${deliveryCharges.toFixed(2)}</span>
+              </div>
+              <div className="d-flex justify-content-between">
+                <strong>Total:</strong>
+                <strong>${calculateTotal()}</strong>
+              </div>
+              <button className=" mt-3 cart-checkout-btn">
+                Proceed to Checkout{" "}
+                <i className="fa-solid fa-circle-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
         </div>
-        <table className="cart-summary text-justify">
-          <tbody>
-            <tr className="summary-item pb-3">
-              <th>Pricing Details</th>
-              <th>Total Cost</th>
-            </tr>
-            <tr className="summary-item">
-              <td>
-                <h6>Subtotal:</h6>
-              </td>
-              <td>
-                <span>${subtotal.toFixed(2)}</span>
-              </td>
-            </tr>
-            <tr className="summary-item">
-              <td>
-                <h6>Tax (10%):</h6>
-              </td>
-              <td>
-                <span>${tax.toFixed(2)}</span>
-              </td>
-            </tr>
-            <tr className="summary-item">
-              <td>
-                <h6>Delivery Charge:</h6>
-              </td>
-              <td>
-                <span>
-                  ${(items.length !== 0 && deliveryCharge.toFixed(2)) || 0.0}
-                </span>
-              </td>
-            </tr>
-            <tr className="summary-item total">
-              <td>
-                <h5>Total Amount:</h5>
-              </td>
-              <td>
-                <span>${total.toFixed(2)}</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div>
-                  <Link href="/" className="cart-checkout-btn">
-                    <span>Procced to Checkout</span>
-                    <i className="fa-solid fa-circle-arrow-right"></i>
-                  </Link>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      )}
     </div>
   );
 };
